@@ -10,7 +10,12 @@ routes.post('/create', celebrate({
         title: Joi.string().required(),
         launchYear: Joi.number().required(),
         developer: Joi.string().required(),
-        platform: Joi.object().required()
+        platform: Joi.object().keys({
+            xbox: Joi.boolean(),
+            playstation: Joi.boolean(),
+            nintendo: Joi.boolean(),
+            PC: Joi.boolean()
+        }).required()
     })
 }), insertItemMongo)
 

@@ -15,19 +15,19 @@ const gameSchema = new Schema({
     },
     platform: {
       xbox: {
-        available: Boolean,
+        type: Boolean,
         default: false
       },
       playstation: {
-        available: Boolean,
+        type: Boolean,
         default: false
       },
       nintendo: {
-        available: Boolean,
+        type: Boolean,
         default: false
       },
       pc: {
-        available: Boolean,
+        type: Boolean,
         default: false
       },
     },
