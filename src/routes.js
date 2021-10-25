@@ -3,6 +3,7 @@ const { celebrate, Joi, Segments } = require('celebrate')
 
 const { insertItemMongo } = require('./controllers/create-mongo-controller')
 const { readItemMongo } = require('./controllers/read-mongo-controller')
+const { deleteItemMongo } = require('./controllers/delete-mongo-controller')
 
 const routes = Router()
 
@@ -25,5 +26,11 @@ routes.get('/read', celebrate({
         title: Joi.string().required()
     })
 }), readItemMongo)
+
+routes.delete('/deleteById', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        _id: Joi.string().required()
+    })
+}), deleteItemMongo)
 
 module.exports = { routes }
