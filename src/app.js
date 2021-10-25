@@ -2,12 +2,13 @@ require('dotenv').config()
 
 const { errors } = require('celebrate')
 const { routes } = require('./routes')
+const { connectToDatabase } = require('./database/mongodb')
 
 const express = require('express')
 
 const app = express()
 
-//conectar ao banco
+connectToDatabase()
 
 app.use(express.json())
 app.use(routes)
