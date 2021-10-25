@@ -2,6 +2,7 @@ const { Router } = require('express')
 const { celebrate, Joi, Segments } = require('celebrate')
 
 const { insertItemMongo } = require('./controllers/create-mongo-controller')
+const { readItemMongo } = require('./controllers/read-mongo-controller')
 
 const routes = Router()
 
@@ -18,5 +19,11 @@ routes.post('/create', celebrate({
         }).required()
     })
 }), insertItemMongo)
+
+routes.get('/read', celebrate({
+    [Segments.BODY]: Joi.object().keys({
+        title: Joi.string().required()
+    })
+}), readItemMongo)
 
 module.exports = { routes }
