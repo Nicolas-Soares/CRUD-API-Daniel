@@ -2,8 +2,6 @@ const { GameModel } = require("../database/schemas/gameSchema");
 
 module.exports = {
   handle: async function () {
-    const gamesFromDatabase = await GameModel.find({});
-
-    return gamesFromDatabase;
+    return await GameModel.find({});
   },
 };

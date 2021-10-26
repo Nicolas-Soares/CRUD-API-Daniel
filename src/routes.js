@@ -8,6 +8,8 @@ const { updateItemMongo } = require('./controllers/update-mongo-controller')
 
 const routes = Router()
 
+routes.get('/read', readItemMongo)
+
 routes.post('/create', celebrate({
     [Segments.BODY]: Joi.object().keys({
         title: Joi.string().required(),
@@ -21,12 +23,6 @@ routes.post('/create', celebrate({
         }).required()
     })
 }), insertItemMongo)
-
-routes.get('/read', celebrate({
-    [Segments.BODY]: Joi.object().keys({
-        title: Joi.string().required()
-    })
-}), readItemMongo)
 
 routes.delete('/deleteById', celebrate({
     [Segments.BODY]: Joi.object().keys({

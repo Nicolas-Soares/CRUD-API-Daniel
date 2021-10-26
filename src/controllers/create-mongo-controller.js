@@ -5,9 +5,9 @@ async function insertItemMongo(req, res) {
         const { title, launchYear, developer, platform } = req.body
         const response = await createGame.handle(title, launchYear, developer, platform)
 
-        res.status(200).json(response)
+        res.status(201).json(response)
     } catch (error) {
-        return res.status(404).json({
+        return res.status(400).json({
             message: error.message
         })
     }
