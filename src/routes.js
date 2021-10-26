@@ -17,7 +17,7 @@ routes.post('/create', celebrate({
             xbox: Joi.boolean(),
             playstation: Joi.boolean(),
             nintendo: Joi.boolean(),
-            PC: Joi.boolean()
+            pc: Joi.boolean()
         }).required()
     })
 }), insertItemMongo)
@@ -41,10 +41,10 @@ routes.put('/update', celebrate({
         launchYear: Joi.number().optional(),
         developer: Joi.string().optional(),
         platform: Joi.object().keys({
-            xbox: Joi.boolean(),
-            playstation: Joi.boolean(),
-            nintendo: Joi.boolean(),
-            PC: Joi.boolean()
+            xbox: Joi.boolean().optional(),
+            playstation: Joi.boolean().optional(),
+            nintendo: Joi.boolean().optional(),
+            pc: Joi.boolean().optional()
         }).optional()
     })
 }), updateItemMongo)
