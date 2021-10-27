@@ -30,7 +30,7 @@ routes.delete('/deleteById', celebrate({
     })
 }), deleteItemMongo)
 
-routes.put('/update', celebrate({
+routes.patch('/update', celebrate({
     [Segments.BODY]: Joi.object().keys({
         _id: Joi.string().required(),
         title: Joi.string().optional(),
